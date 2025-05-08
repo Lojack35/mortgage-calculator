@@ -1,1 +1,55 @@
-/* Add your custom css here */
+.calculator-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .calculator-form {
+    display: inline-block;
+    text-align: left;
+    width: 20%;
+  }
+  
+  .form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 30px; /* horizontal spacing between label and input */
+  }
+  
+  label {
+    min-width: 140px; /* ensures labels are aligned */
+    font-weight: bold;
+  }
+  
+  input,
+  select {
+    flex: 1;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #286090;
+  }
+
+  #output {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
