@@ -47,6 +47,7 @@ function App() {
   const [rate, setRate] = useState('')
   const [term, setTerm] = useState('')
   const [output, setOutput] = useState('')
+  const [amortization, setAmortization] = useState([])
 
   const calculateMonthlyPayment = (balance, rate, term) => {
     const principal = parseFloat(balance)
@@ -62,6 +63,22 @@ function App() {
     const denominator = Math.pow(1 + interestRate, numberOfPayments) - 1
     const monthlyPayment = principal * (numerator / denominator)
     setOutput(`$${monthlyPayment.toFixed(2)} is your payment`)
+
+    let balanceRemaining = principal
+    const amortizationSchedule = []
+    for (let i = 1; i <= numberOfPayments; i++) {
+      const interestPayment = balanceRemaining * interestRate
+      const principalPayment = monthlyPayment - interestPayment
+      balanceRemaining -= principalPayment
+
+      amortizationSchedule.push({
+        month: i,
+        interest: interestPayment.toFixed(2),
+        principal: principalPayment.toFixed(2),
+        balance: balanceRemaining.toFixed(2),
+      })
+    }
+    setAmortization(amortizationSchedule)
   }
 
   const handleBalanceChange = (e) => {
@@ -111,6 +128,28 @@ function App() {
           <div id="output" data-testid="output">
             {output}
           </div>
+          {amortization.length > 0 && (
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Interest</th>
+                  <th>Principal</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {amortization.map((item) => (
+                  <tr key={item.month}>
+                    <td>{item.month}</td>
+                    <td>${item.interest}</td>
+                    <td>${item.principal}</td>
+                    <td>${item.balance}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </form>
       </div>
     </>
