@@ -1,130 +1,141 @@
+/* ========== MAIN TITLE ========== */
 h1 {
-  text-align: center;
-  color: #00b894;
-  font-size: 3rem;
-  margin-top: 20px;
+  text-align: center;         /* Center the heading horizontally */
+  color: #00b894;             /* Teal green accent color */
+  font-size: 3rem;            /* Large heading */
+  margin-top: 1.25rem;        /* Top space from page edge */
 }
 
+/* ========== CONTAINER ========== */
 .calculator-container {
-  background-color: rgba(0, 0, 0, 0.65);
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.65); /* Semi-transparent dark bg */
+  color: #fff;                           /* Default text color for container */
   text-align: center;
-  margin: 0 auto;
+  margin: 4rem auto;                     /* Vertical spacing + horizontal centering */
   padding: 2rem;
-  border: 2px solid #00b894;
+  border: 2px solid #00b894;             /* Teal green border */
   border-radius: 12px;
   max-width: 800px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Soft shadow for depth */
 }
 
+/* ========== FORM ========== */
 .calculator-form {
   width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: left;
+  max-width: 600px;        /* Prevents form from stretching too wide */
+  margin: 0 auto;          /* Centers form */
+  text-align: left;        /* Align labels and inputs to the left */
 }
 
+/* Each row holds a label + input/select side-by-side */
 .form-row {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
-  gap: 30px; /* horizontal spacing between label and input */
+  margin-bottom: 1rem;
+  gap: 1.5rem;              /* Space between label and input */
 }
 
+/* ========== AMORTIZATION GRID ========== */
 .amortization-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  max-height: 500px;
-  overflow-y: auto;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive cards */
+  gap: 1rem;                  /* Space between cards */
+  max-height: 500px;         /* Scroll limit */
+  overflow-y: auto;          /* Scroll when too tall */
   padding: 1rem;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5); /* Slightly darker background */
   width: 90%;
   margin: 2rem auto;
-  color: #fff;
 }
 
+/* ========== AMORTIZATION CARD ========== */
 .amortization-card {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);  /* Transparent white bg */
+  border: 1px solid rgba(255, 255, 255, 0.3);  /* Soft border */
   border-radius: 8px;
   padding: 1rem;
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);    /* Slight depth */
 }
 
+/* Individual lines within each card */
 .amortization-card p {
-  margin: 0.25rem 0;
+  margin: 0.25rem 0; /* Compact vertical spacing */
 }
 
+/* ========== LABELS ========== */
 label {
-  min-width: 140px; /* ensures labels are aligned */
+  min-width: 8.75rem;  /* Ensures label text aligns across form rows */
   font-weight: bold;
-  color: inherit;
+  color: inherit;      /* Inherits container color (white in dark mode) */
 }
 
+/* ========== INPUTS & SELECTS ========== */
 input,
 select {
-  flex: 1;
-  padding: 10px;
-  font-size: 15px;
+  flex: 1;                                /* Fill remaining space in row */
+  padding: 0.6rem;
+  font-size: 1rem;
   border: 1px solid #aaa;
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
+  background-color: rgba(255, 255, 255, 0.9); /* Light background */
+  color: #000;                             /* Dark text for contrast */
   text-align: center;
 }
 
+/* ========== BUTTON ========== */
 button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
-  background-color: #00b894;
+  width: 100%;                /* Full width of form */
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: #00b894; /* Teal green background */
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /* Smooth hover */
 }
 
 button:hover {
-  background-color: #019875;
+  background-color: #019875;  /* Darker teal green on hover */
 }
 
-#output {
+/* ========== OUTPUT BOX ========== */
+.output {
   text-align: center;
-  margin-top: 20px;
-  font-size: 20px;
+  margin-top: 1.25rem;
+  font-size: 1.25rem;
   font-weight: bold;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent gray */
   border-radius: 8px;
-  color: #fff;
 }
 
+/* ========== THEME TOGGLE ========== */
 .theme-toggle-inline {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 10px; /* horizontal spacing between switch and label */
-  margin-bottom: 10px;
+  gap: 1rem;              /* Space between toggle and label */
+  margin-bottom: 1rem;
 }
 
-/* Fancy toggle switch */
+/* ========== TOGGLE SWITCH STYLING ========== */
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 26px;
+  width: 3rem;            /* Total width of the toggle */
+  height: 1.6rem;         /* Height of the toggle */
 }
 
+/* Hide default checkbox input */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
+/* The slider track */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -137,33 +148,38 @@ button:hover {
   border-radius: 34px;
 }
 
+/* The sliding circle (thumb) */
 .slider:before {
   position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
-  left: 4px;
-  bottom: 3px;
+  height: 1.25rem;
+  width: 1.25rem;
+  left: 0.25rem;
+  bottom: 0.18rem;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
 }
 
+/* When switch is ON */
 input:checked + .slider {
   background-color: #00b894;
 }
 
+/* Move thumb to right when ON */
 input:checked + .slider:before {
   transform: translateX(112px);
 }
 
+/* Text next to toggle switch */
 .theme-label {
-  margin-left: 10px;
+  margin-left: 0.625rem;
   color: inherit;
-  font-size: 14px;
+  font-size: 1rem;
   vertical-align: middle;
 }
 
+/* Light mode theme-specific override */
 body.light-mode .theme-label {
   color: black;
 }

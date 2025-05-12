@@ -1,62 +1,100 @@
+/* ================================
+   GLOBAL DEFAULT STYLES (via :root)
+   Sets font, colors, and rendering behavior
+================================ */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; /* Modern, responsive font stack */
+  line-height: 1.5;                   /* Improves vertical rhythm of text */
+  font-weight: 400;                   /* Standard body text weight */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light dark;          /* Enables native support for light/dark media query */
+  color: rgba(255, 255, 255, 0.87);  /* Default light-colored text (for dark background) */
+  background-color: #242424;         /* Dark base background */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;              /* Prevents synthetic bold/italic */
+  text-rendering: optimizeLegibility; /* Improves font rendering on most systems */
+  -webkit-font-smoothing: antialiased; /* Better anti-aliasing on macOS Safari */
+  -moz-osx-font-smoothing: grayscale;  /* Better font rendering on Firefox/macOS */
 }
 
+/* ================================
+   HTML BASE ELEMENT
+   Sets scrolling behavior
+================================ */
+html {
+  overflow: auto; /* Allows vertical scroll if content exceeds viewport */
+}
+
+/* ================================
+   BODY ELEMENT STYLES
+   Sets background and base layout
+================================ */
 body {
-  margin: 0 auto;
-  min-height: 100vh;
+  margin: 0;                         /* Remove default margin */
+  min-height: 100vh;                 /* Ensure body fills the full height of the viewport */
+
+  /* Background image for visual interest */
   background-image: url(https://images.unsplash.com/vector-1741055269272-f30d1e737eb9?w=1920&auto=format&fit=crop&q=100&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW9ydGdhZ2V8ZW58MHx8MHx8fDA%3D);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover;            /* Ensures image fills the screen */
+  background-position: center;       /* Centers the image */
+  background-repeat: no-repeat;      /* Prevents tiling */
+  overflow: auto;                    /* Allow body scrolling */
 }
 
+/* ================================
+   MEDIA QUERY: PREFER LIGHT THEME
+   Applies if user's system is in light mode
+================================ */
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #213547;                  /* Darker text for light background */
+    background-color: #ffffff;       /* Light background */
   }
+
   a:hover {
-    color: #747bff;
+    color: #747bff;                  /* Hover color for links */
   }
+
   button {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9;       /* Light button background */
   }
 }
 
+/* ================================
+   DARK MODE CLASS
+   Overrides background & text for dark mode
+   (Activated manually via JS toggle)
+================================ */
 body.dark-mode {
-  background-color: #121212;
-  color: white;
+  background-color: #121212;         /* Deep dark background */
+  color: white;                      /* Bright text for contrast */
 }
 
+/* ================================
+   LIGHT MODE CLASS
+   Overrides background & text for light mode
+   (Activated manually via JS toggle)
+================================ */
 body.light-mode {
-  background-color: #f0f0f0;
-  color: #222;
+  background-color: #f0f0f0;         /* Light background */
+  color: #222;                       /* Darker text */
 }
 
+/* Overrides specific container backgrounds for light mode */
 body.light-mode .calculator-container {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
   color: #000;
 }
 
+/* Light mode styling for amortization grid and cards */
 body.light-mode .amortization-grid,
 body.light-mode .amortization-card {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7); /* Lighter card background */
   color: #000;
 }
 
-body.light-mode #output {
-  background-color: rgba(0, 0, 0, 0.1);
+/* Light mode styling for result/output section */
+body.light-mode .output {
+  background-color: rgba(255, 255, 255, 0.4); /* Soft highlight */
   color: #000;
 }
